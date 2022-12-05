@@ -1,0 +1,41 @@
+{% extends "auctions/layout.html" %} {% block body %}
+<h2>Active Listings</h2>
+
+<div id="ecommerce_grid" class="container" style = "position: relative">
+  {% for auction in auctions %}
+
+  {% if auction.bid_closed == "closed" %}
+    <a href="{% url 'listing_page' auction.id %}">
+      <div class="row">
+        <div class="col">
+          <img src="{{ auction.url }}" />
+          <h1>${{auction.starting_bid}}</h1>
+          <h4>{{ auction.title }}</h4>
+          <p>{{ auction.description }}</p>
+          <p>{{ auction.category }}</p>
+          <img id = "closed_img" src="https://t4.ftcdn.net/jpg/02/99/56/73/360_F_299567331_q4vICKYkfQ6qLHvw4d75uBXaGwJq0bkg.jpg">
+        </div>
+      </div>
+    </a>
+
+
+  {% elif auction.bid_closed == "open" %}
+
+    <a href="{% url 'listing_page' auction.id %}">
+      <div class="row">
+        <div class="col">
+          <img src="{{ auction.url }}" />
+          <h1>${{auction.starting_bid}}</h1>
+          <h4>{{ auction.title }}</h4>
+          <p>{{ auction.description }}</p>
+          <p>{{ auction.category }}</p>
+        </div>
+      </div>
+    </a>
+
+  {% endif %}
+
+  {% endfor %}
+</div>
+
+{% endblock %}

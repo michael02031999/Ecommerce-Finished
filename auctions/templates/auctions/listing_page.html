@@ -1,0 +1,120 @@
+{% extends "auctions/layout.html" %} {% block body %}
+<h2>Listing Page: {{ auction_listing.title }}</h2>
+
+{% load update_variable %}
+
+<div id="listing_page_container" class="container">
+
+  <div id = "error_listing" class="alert alert-danger" role="alert">
+    {{ error_message }}
+  </div>
+
+  <div id = "success_listing" class="alert alert-success" role="alert">
+    {{ success_message }}
+  </div>
+
+  <div id = "congrats_listing" class="alert alert-warning" role="alert">
+    {{ congrats_message }}
+  </div>
+
+
+  <img id="listing_page_image" src="{{ auction_listing.url }}" />
+
+  {% if user.is_authenticated %}
+  <br />
+
+  <form method="post">
+    {% csrf_token %} 
+    {% if AddRemove == "Remove from watchlist"%}
+    <input id="add" type="submit" name="AddRemove" value="{{AddRemove}}" class="bg-danger" />
+
+    {% elif AddRemove == "Add to watchlist" %}
+
+    <input id="remove" type="submit" name="AddRemove" value="{{AddRemove}}" class="bg-primary" />
+
+    
+    {% endif %}
+  </form>
+
+  {% endif %}
+  <br>
+  <p id="bid_count"> Number of bids so far: {{ bid_count }} </p>
+
+  {% if closed == "Yes" %}
+
+  <p id="closed_tag" class="mt-1 p-1 text-danger">{{ listing_closed }}</p>
+
+  {% else %}
+  <form method = "post">
+
+    {% csrf_token %}
+  
+    <input style="display: none" type="text" name="AddRemoveBid" value = "{{ AddRemove }}">
+  
+    <input class="mt-1" name="bid" type="text" placeholder="Place bid here" />
+    
+    <input name="bid_submit" type="submit" class="bg-success text-light" />
+  
+  </form>
+
+  {% endif %}
+
+  <p id="description">{{ auction_listing.description }}</p>
+  <p id="bid">${{ auction_listing.starting_bid}}</p>
+
+  <p><strong>Details:</strong></p>
+  <ul>
+    <li>Listed By: {{ auction_listing.user }}</li>
+    <li>Category: {{ auction_listing.category }}</li>
+  </ul>
+
+{% if current_user == auction_listing.user %}
+
+<form method = "post" id="closedform">
+  {% csrf_token %}
+  <input type="submit" name="close_listing" value="Close auction" class="bg-danger text-light p-2">
+</form>
+
+{% endif %}
+
+{% if user.is_authenticated %}
+
+<div id="comments_container" class="container">
+
+  <h2> Comments </h2>
+  
+    <form style = "margin-bottom: 20px;" method="post">
+      {% csrf_token %}
+      <div id="make_comment">
+        <input id="comment_input" name = "comment" type = "text">
+        <input style="display: none" id="user" type="text" name = "user" value="{{ user }}">
+        <button id="comment_button" name = "publish" type="submit" class="btn btn-primary" value="Publish comment">Publish comment</button>
+      </div>
+    </form>
+    {% for comment in comments %}
+    <div id="display_comments">  
+        <p style = "border-bottom: 1px solid #000">{{ comment.user}}: </p>
+        <div>
+          <p id = "display_message" style="font-size: 20px; background: rgb(41, 181, 227);">{{ comment.message }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endif %}
+
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+{% endblock %}

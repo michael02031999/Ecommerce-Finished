@@ -1,0 +1,237 @@
+body {
+  padding: 10px;
+}
+
+/* Layout */
+
+#count {
+  background-color: gray;
+  border-radius: 25px;
+  color: white;
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+}
+
+/* Active Listing */
+
+#ecommerce_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  text-align: center;
+  gap: 50px;
+  padding: 20px;
+  grid-auto-rows: 1fr; 
+  
+}
+
+#ecommerce_grid img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.row {
+  display: grid;
+  grid-auto-rows: 1fr;
+  
+  height: fit-content; 
+}
+
+.col {
+  margin-bottom: 25px !important;
+  border: 2.5px solid black;
+  padding: 25px;
+  height: fit-content; 
+  
+}
+
+.col * {
+  margin-bottom: 15px;
+}
+
+#closed_img {
+  position: relative;
+  background: green;
+}
+/* Create Listing */
+
+#createlist_container {
+  margin-top: 25px; 
+}
+
+#title_div {
+  height: fit-content;
+
+}
+
+#description_div {
+  margin-top: -37.5px !important;
+}
+
+#bid_div {
+  margin-top: 10px !important;
+}
+
+#url_div {
+  margin-top: -25px;
+}
+
+#category_div {
+  margin-top: -50.5px;
+}
+
+#button_div {
+  margin-top: -80px;
+}
+
+
+
+/* Listing Page */
+
+#listing_page_container {
+  padding: 25px;
+}
+
+#listing_page_image {
+  padding: 20px;
+  height: 300px;
+}
+
+#bid {
+  font-size: 30px !important;
+}
+
+#description {
+  font-size: 15px;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#add,
+#remove {
+  color: white !important;
+}
+
+#error_listing, #success_listing, #congrats_listing {
+  padding: 0; 
+  border: none; 
+  margin: 0; 
+  width: fit-content;
+}
+
+#bid_count {
+  background-color: silver; 
+  display: inline-block;
+  margin-top: 10px; 
+  margin-bottom: 7.5px;
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
+}
+
+#closedform {
+  width: fit-content;
+}
+
+#closed_tag {
+  width: fit-content;
+}
+
+
+
+/* Watchlist*/
+
+#watchlist_container {
+  margin-bottom: 15px;
+  gap: 25px;
+}
+
+#contents p {
+  margin: 0px;
+}
+
+#watchlist_image {
+  width: 150px;
+}
+
+#watchlist_price {
+  margin-bottom: 0px;
+}
+
+#watchlist_description {
+  font-size: 10px;
+}
+
+/* Comments */
+
+
+#comments_container {
+  border: 5px solid gray;
+  width: 100%; 
+  text-align: center !important;
+  padding: 15px; 
+  padding-left: 0px;
+  padding-right: 0px; 
+  margin-top: 25px;
+  box-sizing: border-box;
+}
+
+#comments_container h2 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;  
+  font-family: "Times New Roman"
+}
+
+#make_comment {
+  display: flex; 
+  flex-direction: row;
+  align-items: flex-end;
+  height: 100px;
+  justify-content: center;
+  gap: 10px;
+  
+}
+
+#comment_input {
+  height: 100px;
+  width: 80%; 
+  
+  line-height: normal;
+  padding-left: 25px;
+  padding-bottom: 50px;
+  font-size: 20px; 
+}
+
+#comment_button {
+  height: 35px !important;
+}
+
+#display_comments {
+  display: flex; 
+  gap: 10px;
+  padding: 25px;
+  align-items: flex-end;
+  padding-bottom: 0px; 
+  padding-top: 0px; 
+}
+
+#display_message {
+  border-radius: 10px; 
+  padding: 5px;
+  color: white;
+}
+
+/* Categories */
+
+.input_div {
+  margin: 20px;
+}
+
+.categories_input {
+  width: 250px;
+  background: rgb(29,162,184);
+  color: white;
+  padding: 5px; 
+}
+

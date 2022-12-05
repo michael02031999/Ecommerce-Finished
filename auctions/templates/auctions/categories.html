@@ -1,0 +1,42 @@
+{% extends "auctions/layout.html" %} {% block body %}
+
+<h2>Categories</h2>
+    <div class="container">
+        <form method = "post">
+            {% csrf_token %}
+            <div class="input_div">
+                <input class="categories_input" type="submit" name="1" value="Electronics">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name="2" value="Collectibles & Art">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "3" value="Clothing & Accessories">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "4" value="Home & Garden">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "5" value="Jewelry & Watches">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "6" value="Sporting Goods">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "7" value="Motors">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "8" value="Fashion">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "9" value="Toys">
+            </div>
+            <div class="input_div">
+                <input class="categories_input" type="submit" name = "10" value="Other">
+            </div>    
+        </form>
+    </div>
+    
+    
+    
+{% endblock %}
